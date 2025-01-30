@@ -27,7 +27,7 @@ const MyForm = () => {
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           const requestData = {
-            title: values.username,
+            title: `Name:${values.username}`,
             body: `Email: ${values.email}, Contact: ${values.contact}`,
             userId: 1,
           };
@@ -63,7 +63,7 @@ const MyForm = () => {
               onChange={(e) => {
                 const usernameValue = e.target.value;
                 setFieldValue("username", usernameValue.toUpperCase());
-                setFieldValue("email", usernameValue ? `${usernameValue.toLowerCase()}@gmail.com` : "");
+                setFieldValue("email", usernameValue ? `${usernameValue.replace(/\s+/g, '').toLowerCase()}@gmail.com` : "");
               }}
             />
 
